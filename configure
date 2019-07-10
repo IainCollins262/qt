@@ -4915,7 +4915,7 @@ fi
 
 # symlink includes
 if [ -n "$PERL" ] && [ -x "$relpath/bin/syncqt" ]; then
-    SYNCQT_OPTS=-quiet
+    SYNCQT_OPTS=
     [ "$CFG_DEV" = "yes" ] && SYNCQT_OPTS="$SYNCQT_OPTS -check-includes"
     if [ "$OPT_SHADOW" = "yes" ]; then
         "$outpath/bin/syncqt" $SYNCQT_OPTS || exit 1
