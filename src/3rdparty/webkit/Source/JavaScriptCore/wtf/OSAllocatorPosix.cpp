@@ -76,6 +76,11 @@ void* OSAllocator::reserveAndCommit(size_t bytes, Usage usage, bool writable, bo
     flags |= MAP_NORESERVE;
 #endif
 
+#if(OS(DARWIN))
+    if (writable && executable)
+        flags |= MAP_JIT;
+#endif
+
 #if OS(DARWIN)
     int fd = usage;
 #else
